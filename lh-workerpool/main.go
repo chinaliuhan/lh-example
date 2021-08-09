@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"sync"
 	"time"
 )
 
@@ -46,13 +47,46 @@ func easyPool() {
 		}(i)
 	}
 }
+
+//限制协程数量, 根据令牌桶来实现
+func limitWorkerPool(w *sync.WaitGroup) {
+	mxNum := 10
+	//协程总大小
+	ch := make(chan int, mxNum)
+	//放入数据
+	for i := 0; i < mxNum; i++ {
+		ch <- 1
+	}
+
+	//取出一个如果用完了便会阻塞住
+	<-ch
+	go func() {
+		defer func() {
+			//用完插入回去
+			ch <- 1
+		}()
+		//在这里实现业务
+		log.Println(time.Now())
+
+		w.Done()
+	}()
+}
+
 func main() {
 	/**
 	工作池最大的作用是为了限制协程无限制的增长,虽然GO的协程开销很小,但是要知道每个携程中是带有很多业务逻辑的,如果协程在执行中被堵住之类的,导致协程一直增长,很容易拖垮服务器
 	可以看到,虽然每个协程都休眠了两秒,但是实际上这里一共也只休眠了四秒,可见协程是并行了
 	*/
+
+	//限制协程数量
+	w := &sync.WaitGroup{}
+	w.Add(1)
+	limitWorkerPool(w)
+	w.Wait()
+	return
 	//建议工作池
 	easyPool()
 	//工作池
 	workerPool()
+
 }
