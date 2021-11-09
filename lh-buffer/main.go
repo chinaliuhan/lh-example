@@ -57,11 +57,11 @@ func main() {
 	结果: 从字符串中读取3个字节的数据,再次打印时,发现前三个已消失,可见buffer中的数据通过read只能被消费一次
 	*/
 	//合并两个字符串
-	s1 := "hello there"
+	s1 := "simple there"
 	s2 := " yes copy"
 	buffer1 := bytes.NewBufferString(s1)
 	buffer1.WriteString(s2)
-	log.Println(buffer1.String()) //hello there yes copy
+	log.Println(buffer1.String()) //simple there yes copy
 	//从字符串中读取3个字节的数据,再次打印时,发现前三个已消失,可见buffer中的数据只能被消费一次
 	s3 := make([]byte, 3)
 	buffer1.Read(s3)
@@ -122,7 +122,7 @@ func main() {
 	}
 	log.Println(readString) //这里就是
 	//读取一个UTF8的字符串
-	buffer6 := bytes.NewBufferString("这里就是 hey buffer6")
+	buffer6 := bytes.NewBufferString("这里就是 simple buffer6")
 	readRune, _, err := buffer6.ReadRune()
 	if err != nil {
 		log.Fatalln(err)
