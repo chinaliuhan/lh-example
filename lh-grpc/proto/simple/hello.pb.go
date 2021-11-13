@@ -172,7 +172,7 @@ type SearchResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Response string `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	Response string `protobuf:"bytes,1,opt,name=reply,proto3" json:"reply,omitempty"`
 }
 
 func (x *SearchResponse) Reset() {

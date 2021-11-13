@@ -4,26 +4,18 @@
 
 这是很久之前我在学习Golang中挨个敲过的一部分代码案例,基本上如果在看Golang的书时敲了书上的代码,再敲这些案例之后就差不多入门了.
 
--   一般的代码学习自 **go by example**
--   加密部分的代码主要是通过文档和之前的编程经验结合学习自黑马程序员的公开课程 **4天掌握GO语言密码学**
--   还有一部分是来自一个APP **Code Recipes Pro**
--   还有一部分是工作中遇到的问题
-
-
-
-
+- 一般的代码学习自 **go by example**
+- 加密部分的代码主要是通过文档和之前的编程经验结合学习自黑马程序员的公开课程 **4天掌握GO语言密码学**
+- 还有一部分是来自一个APP **Code Recipes Pro**
+- 还有一部分是工作中遇到的问题
 
 ## 独立小demo
 
 [common](https://github.com/chinaliuhan/lh-example/tree/main/lh-common)
 
-
-
 ## 原子
 
 [atomic](https://github.com/chinaliuhan/lh-example/tree/main/lh-atomic)
-
-
 
 ## buffer操作
 
@@ -39,21 +31,21 @@
 
 ## 加密和编码
 
-​	[aes-ctr](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/aes-ctr)
+​    [aes-ctr](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/aes-ctr)
 
-​	[base64](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/base64)
+​    [base64](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/base64)
 
-​	[des-cbc](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/des-cbc)
+​    [des-cbc](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/des-cbc)
 
-​	[md5](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/md5)
+​    [md5](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/md5)
 
-​	[rsa-encryt-decryt](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/rsa-encryt-decryt)
+​    [rsa-encryt-decryt](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/rsa-encryt-decryt)
 
-​	[rsa-keypair](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/rsa-keypair)
+​    [rsa-keypair](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/rsa-keypair)
 
-​	[sha1](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/sha1)
+​    [sha1](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/sha1)
 
-​	[sha256](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/sha256)
+​    [sha256](https://github.com/chinaliuhan/lh-example/tree/main/lh-encrypt/sha256)
 
 ## 命令行参数
 
@@ -161,5 +153,9 @@
 
 github.com/pebbe/zmq4 v1.2.7
 
-### [发布与订阅](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq)
+### [发布与订阅](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/pub-sub)
+
+### [请求与回复](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/req-rep)
+
+### [高级请求与回复](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/dealer-router)
 
