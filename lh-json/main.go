@@ -6,19 +6,19 @@ import (
 )
 import "log"
 
-// 下面我们将使用这两个结构体来演示自定义类型的编码和解码。
 type pager1 struct {
-	Page   int
-	Fruits []string
+	Page   int      //这里没有使用`json:"page"`指定他作为json时的键名,所以做json时键名也就是这里的字段名Page
+	Fruits []string //同上
 }
 type pager2 struct {
 	Page   int      `json:"page"`
 	Fruits []string `json:"fruits"`
 }
 type pager3 struct {
-	Page   int      `json:"page"`
-	Count  int      `json:"-"`
+	Page   int      `json:"page,omitempty"` //omitempty 表示如果没有赋值则不会显示该字段的默认值,但是无法忽略嵌套的结构体
+	Count  int      `json:"-"`              //- 表示忽略该字段,即使赋值了也不会显示
 	Fruits []string `json:"fruits"`
+	Size   int      `json:"size"`
 }
 
 func baseType2Json() {
@@ -69,12 +69,12 @@ func customTag2Json() {
 func customTag2JsonSkip() {
 	// 你可以给结构字段声明标签来自定义编码的 JSON 数据键名称。在上面 `pager2` 的定义可以作为这个标签这个的一个例子。
 	res2D := pager3{
-		Page:   1,
+		Page:   1, //可以看到Size字段虽然没有给值但是还是打印了默认值0,但是这里指定了 omitempty,如果这里没有赋值,则下面打印时就不会有该字段,但是omitempty无法忽略嵌套的结构体
 		Fruits: []string{"apple", "orange", "pear"},
 		Count:  111, //这里虽然指定了count的值,但是因为pager3中的tag标记为-,所以即使这里给值了,转码为json时也不会有该字段
 	}
 	res2B, _ := json.Marshal(res2D)
-	log.Println(string(res2B))
+	log.Println(string(res2B)) // {"page":1,"fruits":["apple","orange","pear"],"size":0}
 }
 
 func json2Map() {
@@ -149,5 +149,5 @@ func main() {
 	//json2Struct()
 
 	//将map解析为json并打印到标准输出
-	map2Json2Stdout()
+	//map2Json2Stdout()
 }

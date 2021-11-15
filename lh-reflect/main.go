@@ -6,10 +6,10 @@ import (
 )
 
 type Demo struct {
-	Name string
-	Sex  int
-	Age  int
-	Addr string
+	Name string `json:"name,omitempty"` //omitempty 在使用时如果不给值则在json中不显示该字段
+	Sex  int    `json:"sex,omitempty"`
+	Age  int    `json:"age,omitempty"`
+	Addr string `json:"addr,omitempty"`
 }
 
 func (receiver *Demo) One() string {
@@ -80,7 +80,12 @@ func typeOf(t reflect.Type) {
 		log.Println("字段数量", t.NumField())
 		//遍历字段并打印字段名
 		for i := 0; i < t.NumField(); i++ {
-			log.Println("###字段名", t.Field(i).Name)
+			log.Println("### 字段名", t.Field(i).Name)
+			log.Println("### tag全部", t.Field(i).Tag)              //json:"addr,omitempty"
+			log.Println("### tag的内容", t.Field(i).Tag.Get("json")) //addr,omitempty
+			if tagStr, ok := t.Field(i).Tag.Lookup("json"); ok {
+				log.Println(tagStr) //addr,omitempty
+			}
 		}
 	}
 	//遍历防范并打印方法名
