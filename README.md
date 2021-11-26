@@ -4,10 +4,14 @@
 
 这是很久之前我在学习Golang中挨个敲过的一部分代码案例,基本上如果在看Golang的书时敲了书上的代码,再敲这些案例之后就差不多入门了.
 
-- 一般的代码学习自 **go by example**
-- 加密部分的代码主要是通过文档和之前的编程经验结合学习自黑马程序员的公开课程 **4天掌握GO语言密码学**
-- 还有一部分是来自一个APP **Code Recipes Pro**
-- 还有一部分是工作中遇到的问题
+## References
+
+- 工作中遇到的问题,测试小demo
+- go by example
+- 4天掌握GO语言密码学
+- Code Recipes Pro
+- 慕课网
+- 极客时间
 
 ## 独立小demo
 
@@ -153,9 +157,15 @@
 
 github.com/pebbe/zmq4 v1.2.7
 
-### [发布与订阅](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/pub-sub)
+[发布与订阅](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/pub-sub)
 
-### [请求与回复](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/req-rep)
+[请求与回复](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/req-rep)
 
-### [高级请求与回复](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/dealer-router)
+[高级请求与回复](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/dealer-router)
+
+## 爬虫
+
+[单进程爬虫](https://github.com/chinaliuhan/lh-example/tree/main/lh-crawler/single)
+
+[并发爬虫](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/cocurrent)
 
