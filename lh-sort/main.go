@@ -24,4 +24,39 @@ func main() {
 	s := sort.IntsAreSorted(ints)
 	log.Println(s)
 
+	//二维数组排序
+	type person struct {
+		name string
+		age  uint8
+	}
+	var sli []person
+	a := person{
+		name: "ZhangSan",
+		age:  1,
+	}
+	b := person{
+		name: "LisSi",
+		age:  3,
+	}
+	c := person{
+		name: "WangEr",
+		age:  2,
+	}
+	d := person{
+		name: "MaZi",
+		age:  4,
+	}
+	sli = append(sli, a, b, c, d)
+	sort.Slice(sli, func(i, j int) bool {
+		//从小到大
+		return sli[i].age < sli[j].age
+	})
+	log.Printf("从小到大 %+v", sli) //从小到大 [{name:ZhangSan age:1} {name:WangEr age:2} {name:LisSi age:3} {name:MaZi age:4}]
+
+	sort.Slice(sli, func(i, j int) bool {
+		//从大到大
+		return sli[i].age > sli[j].age
+	})
+	log.Printf("从大到小 %+v", sli) // 从大到小 [{name:MaZi age:4} {name:LisSi age:3} {name:WangEr age:2} {name:ZhangSan age:1}]
+
 }
