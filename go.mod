@@ -3,6 +3,7 @@ module lh-example
 go 1.16
 
 require (
+	github.com/boltdb/bolt v1.3.1 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20211101210129-f9bde24e5ca2 // indirect
 	github.com/mailgun/godebug v0.0.0-20170609050446-bfb01ae9c266 // indirect
