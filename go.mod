@@ -8,6 +8,7 @@ require (
 	github.com/gopherjs/gopherjs v0.0.0-20211101210129-f9bde24e5ca2 // indirect
 	github.com/mailgun/godebug v0.0.0-20170609050446-bfb01ae9c266 // indirect
 	github.com/pebbe/zmq4 v1.2.7 // indirect
+	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	golang.org/x/net v0.0.0-20211118161319-6a13c67c3ce4 // indirect
 	golang.org/x/sys v0.0.0-20211117180635-dee7805ff2e1 // indirect

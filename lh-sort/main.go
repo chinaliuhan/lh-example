@@ -46,7 +46,15 @@ func main() {
 		name: "MaZi",
 		age:  4,
 	}
-	sli = append(sli, a, b, c, d)
+	e := person{
+		name: "ADa",
+		age:  1,
+	}
+	f := person{
+		name: "Aer",
+		age:  1,
+	}
+	sli = append(sli, a, b, c, d, e, f)
 	sort.Slice(sli, func(i, j int) bool {
 		//从小到大
 		return sli[i].age < sli[j].age
@@ -54,9 +62,24 @@ func main() {
 	log.Printf("从小到大 %+v", sli) //从小到大 [{name:ZhangSan age:1} {name:WangEr age:2} {name:LisSi age:3} {name:MaZi age:4}]
 
 	sort.Slice(sli, func(i, j int) bool {
-		//从大到大
+		//从大到小
 		return sli[i].age > sli[j].age
 	})
 	log.Printf("从大到小 %+v", sli) // 从大到小 [{name:MaZi age:4} {name:LisSi age:3} {name:WangEr age:2} {name:ZhangSan age:1}]
+
+	sort.Slice(sli, func(i, j int) bool {
+		//多重排序
+
+		//年龄从小到大排序
+		if sli[i].age < sli[j].age {
+			return true
+		} else if sli[i].age > sli[j].age {
+			return false
+		}
+
+		//名字从小到大排序
+		return sli[i].name < sli[j].name
+	})
+	log.Printf("多重排序 %+v", sli)
 
 }
