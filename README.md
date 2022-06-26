@@ -170,3 +170,7 @@ github.com/pebbe/zmq4 v1.2.7
 
 [并发爬虫](https://github.com/chinaliuhan/lh-example/tree/main/lh-zmq/cocurrent)
 
+## 泛型
+version>=1.18
+1.17版本需要单独配置
+[泛型](https://github.com/chinaliuhan/lh-example/tree/main/lh-generic)
