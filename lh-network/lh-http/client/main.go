@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"io"
 	"io/ioutil"
 	"log"
@@ -99,13 +100,56 @@ func newClient() {
 }
 
 //可配置所有内容, 包括http的配置,请求头,超时,代理,指定处理重定向的策略等
-func newClientNewReq() {
+func newClientNewReqGet() {
 	//第一步
 	client := &http.Client{}
 	urlPath := "https://www.baidu.com"
 
 	//第二步
 	req, err := http.NewRequest("GET", urlPath, nil)
+	if err != nil {
+		return
+	}
+
+	//可以在这里设置各种header等
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("Cookie", "name=li&age=19&addr=beijing")
+
+	//设置代理
+	client.Transport = &http.Transport{
+		//Proxy: func(r *http.Request) (*url.URL, error) {
+		//	//这是个回调函数
+		//	return url.Parse("socks5://127.0.0.1:7890")
+		//},
+	}
+	//设置请求超时时间
+	client.Timeout = time.Second * 5
+
+	//第三步
+	resp, err := client.Do(req)
+	if err != nil {
+		return
+	}
+	defer resp.Body.Close()
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return
+	}
+	log.Println("响应状态码", resp.StatusCode)
+
+	log.Println("获取到的body", string(body))
+}
+
+func newClientNewReqPost() {
+	//第一步
+	client := &http.Client{}
+	urlPath := "https://www.baidu.com"
+
+	//第二步
+	jsonData := map[string]string{"firstname": "Nic", "lastname": "Raboy"}
+	jsonValue, _ := json.Marshal(jsonData)
+	req, err := http.NewRequest("POST", urlPath, bytes.NewBuffer(jsonValue))
+
 	if err != nil {
 		return
 	}
@@ -197,7 +241,7 @@ func main() {
 	newClient()
 
 	//可以进行任何配置
-	newClientNewReq()
+	newClientNewReqGet()
 
 	//文件上传
 	uploadFile("./tmp.sli", "http://localhost:8080/upload")
